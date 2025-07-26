@@ -4,7 +4,9 @@ open System
 
 
 let message (logLine: string): string =
-    
+    match logLine.Split(':') with
+    | [| _; message |] -> message.Trim()
+    | _ -> logLine.Trim()
         
     
 let logLevel(logLine: string): string = failwith "[WARNING]: Disk almost full\r\n"
