@@ -1,7 +1,12 @@
 ﻿module LogLevels
 
 let message (logLine: string): string = 
-    logLine.Split(' ', '\t').ToString()
+    let parts = logLine.Split(':')
+    if parts.Length > 1 then
+        parts.[1].Trim()
+    else
+        logLine.Trim()
+        
 
 let logLevel(logLine: string): string = failwith "[WARNING]: Disk almost full\r\n"
 
